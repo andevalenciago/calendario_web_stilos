@@ -12,6 +12,48 @@
 
 
 
+    <!---scripts  para usar fullcalendar-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/moment.min.js"></script>
+     <link rel='stylesheet' type='text/css' href= 'css/fullcalendar.min.css' />
+ 
+ <script src='js/fullcalendar.min.js'></script>
+ 
+ 
+ 
+     <title>AGENDAR CITAS</title>
+   </head>
+ 
+ 
+ 
+   <body>
+ 
+     <div class="container">
+          
+         
+       <div class="row">
+         <div class="col"></div>
+         <div class="col-7"><div id= "CalendarioCitas"></div></div><!--Aquí estará el calendario-->
+         <div class="col "></div>
+         <div class="col "></div>
+       </div>
+     </div>
+ 
+ <!--Convertir el docto en calendario--->
+   
+ 
+     <script>
+     
+     $(document).ready(function() 
+      {
+ 
+         $('#CalendarioCitas').fullCalendar();//Convertir el docto en calendario si está listo.
+ 
+ 
+     });
+     
+     </script>
+ 
 
   </body>
 </html>
