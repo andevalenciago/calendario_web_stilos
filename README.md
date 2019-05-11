@@ -1,5 +1,9 @@
 # calendario_web_stilos
-CALENDARIO PROYECTO PARA LA CLASE DE LOS SABADOS: Andrés valencia gonzalez, Estefany gomez, jazer, valentina
+CALENDARIO PROYECTO PARA LA CLASE DE LOS SABADOS: Jaser Martinez
+                 Andres Valencia
+      Estefania Flores
+      Valentina Loaiza
+
 
 PHP, JAVASCRIPT, MYSQL
 
