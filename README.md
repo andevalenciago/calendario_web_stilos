@@ -1,7 +1,7 @@
 # calendario_web_stilos
 CALENDARIO PROYECTO PARA LA CLASE DE LOS SABADOS: Andrés valencia gonzalez, Estefany gomez, jazer, valentina
 
-PHP, JAVASCRIP, MYSQL
+PHP, JAVASCRIPT, MYSQL
 
 LIBRERIAS:
 
