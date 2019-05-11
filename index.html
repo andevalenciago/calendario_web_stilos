@@ -44,10 +44,20 @@
          $('#CalendarioCitas').fullCalendar({//Convertir el docto en calendario si está listo.
  
          header:{
-             left:'today,prev,next',
+             left:'today, prev, next',
              center:'title', 
-             right: 'month,basicWeek, basicDay, agendaWeek, agendaDay'//orden y agrega vista por agenda
+             right: 'month, basicWeek, basicDay, agendaWeek, agendaDay, btn_agendarCita'//orden y agrega vista por agenda
             
+         },
+         customButtons:{
+             btn_agendarCita:{
+                 text:"Agendar Cita",
+                 click:function(){
+                     alert("Modal emergente para agendar citas");
+                 }
+
+             } 
+
          }
 
      }) ;  
