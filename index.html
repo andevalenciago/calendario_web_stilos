@@ -3,15 +3,76 @@
 
 
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/moment.min.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!---scripts  para usar fullcalendar-->
+    <link rel='stylesheet' type='text/css' href= 'css/fullcalendar.min.css'/>
+    <script src='js/fullcalendar.min.js'></script>
+    <script src="js/es.js"></script> <!--Sólo lo traduce a español-->
+ 
+ 
+     <title>AGENDAR CITAS</title>
+   </head>
+ 
+ 
+ 
+   <body>
+ 
+     <div class="container-fluid">
+          
+         
+       <div class="row">
+         <div class="col"></div>
+         <div class="col-7"><div id= "CalendarioCitas"></div></div><!--Aquí estará el calendario-->
+         <div class="col "> </div>
+         <div class="col"></div>
+       </div>
+     </div>
+ 
+ <!--Convertir el docto en calendario--->
+   
+ 
+     <script>
+     
+     $(document).ready(function(){   
+         $('#CalendarioCitas').fullCalendar({//Convertir el docto en calendario si está listo.
+ 
+         header:{
+             left:'today, prev, next',
+             center:'title', 
+             right: 'month, basicWeek, basicDay, agendaWeek, agendaDay, btn_agendarCita'//orden y agrega vista por agenda
+            
+         },
+         customButtons:{
+             btn_agendarCita:{
+                 text:"Agendar Cita",
+                 bootstrap: false,
+                
+                 click:function(){
+                     alert("Aquí irá  un Modal emergente para agendar citas");
+                 }
+                 
 
+             } 
 
+         }
 
+     }) ;  
+ 
+     });
+
+    
+
+     
+     
+     </script>
+ 
 
   </body>
 </html>
