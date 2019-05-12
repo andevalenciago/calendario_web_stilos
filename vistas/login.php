@@ -42,7 +42,7 @@
                                </div>
 
                                <div class="col-md-8">
-                                   <button  onclick="location.href='https://andevalenciago.000webhostapp.com/index.php'">Iniciar</button>
+                                   <button  onclick="location.href='">Iniciar</button>
                                    
                                </div>
 
