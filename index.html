@@ -54,12 +54,19 @@
                  text:"Agendar Cita",
                  bootstrap: false,
                 
-                 click:function(){
-                     alert("Aquí irá  un Modal emergente para agendar citas");
-                 }
+                
                  
 
              } 
+
+
+         }
+        
+             , 
+             dayClick:function(date, jsEvent,view){
+             $(this).css('background-color', 'red');
+             $('#agendar').modal();
+
 
          }
 
