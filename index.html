@@ -15,14 +15,17 @@
     <link rel='stylesheet' type='text/css' href= 'css/fullcalendar.min.css'/>
     <script src='js/fullcalendar.min.js'></script>
     <script src="js/es.js"></script> <!--Sólo lo traduce a español-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
  
  
-     <title>CALENDARIO DE CITAS</title>
+     <title>AGENDAR CITAS</title>
    </head>
  
  
  
-   <body>
+   <body style="background:whitesmoke;">
  
      <div class="container-fluid">
           
@@ -30,7 +33,8 @@
        <div class="row">
          <div class="col"></div>
          <div class="col-7"><div id= "CalendarioCitas"></div></div><!--Aquí estará el calendario-->
-         <div class="col "> </div>
+         <div class="col ">
+           
          <div class="col"></div>
        </div>
      </div>
@@ -46,22 +50,21 @@
          header:{
              left:'today, prev, next',
              center:'title', 
-             right: 'month, basicWeek, basicDay, agendaWeek, agendaDay, btn_agendarCita'//orden y agrega vista por agenda
+             right: 'month, basicWeek, basicDay, agendaWeek, agendaDay'//orden y agrega vista por agenda
             
          },
          customButtons:{
              btn_agendarCita:{
-                 text:"Agendar Cita",
+                 text:"Agendar Citaaa",
                  bootstrap: false,
                 
-                
+                 click:function(){
+                     alert("Aquí irá  un Modal emergente para agendar citas");
+                 }
                  
 
-             } 
-
-
-         }
-        
+             }
+             }
              , 
              dayClick:function(date, jsEvent,view){
              $(this).css('background-color', 'red');
@@ -69,6 +72,7 @@
 
 
          }
+
 
      }) ;  
  
@@ -79,7 +83,64 @@
      
      
      </script>
+ <!-- Button trigger modal -->
+
  
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="agendar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Nueva cita</h4>
+      </div>
+      <div class="modal-body">
+        <form action="" method="post">
+                    <label for="desde">Hora inicio</label>
+                    <div class='input-group date' id='desde'>
+                        <input type='text' id="desde" name="desde" class="form-control" readonly />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+
+                    <br>
+
+                    <label for="to">Hora fin</label>
+                    <div class='input-group date' id='to'>
+                        <input type='text' name="to" id="to" class="form-control" readonly />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+
+                    <br>
+
+                    <label for="tipo">Tipo de evento</label>
+                    <select class="form-control" name="class" id="tipo">
+                        <option value="event-info">Cita</option>
+                        <option value="event-success">Reunión</option>
+                        <option value="event-important">Importantante</option>
+                        <option value="event-special">Evento interno</option>
+                    </select>
+
+                    <br>
+
+
+                    <label for="title">Id cliente</label>
+                    <input type="text" required autocomplete="off" name="title" class="form-control" id="title" placeholder="Introduce un título">
+
+                    <br>
+
+
+                    <label for="body">Descripción</label>
+                    <textarea id="body" name="event" required class="form-control" rows="3"></textarea>
+                    <div class="modal-footer">
+                
+                        <button type="button" class="btn btn-success">Guardar</button>
+                        <button type="button" class="btn btn-warning">Modificar</button>
+                        <button type="button" class="btn btn-danger">borrarr</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        
+                      </div>
+      </div>
 
   </body>
 </html>
