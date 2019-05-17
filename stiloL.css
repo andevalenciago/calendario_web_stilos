@@ -1,0 +1,39 @@
+h1{
+color: rgb(0, 200, 250);
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 30px; 
+}
+h3{
+    color: #90ff29;
+} 
+button[name=button1 ]{
+    border-radius: 8px;
+    background-color:#14ad28;
+    border: none;
+    color: white;
+    background-clip: border-box;
+    padding: 4px 70px;
+    position:absolute;
+    left:70%;
+}
+button{
+    border-radius: 8px;
+    background-color:#14ad28;
+    border: none;
+    color: white;
+    background-clip: border-box;
+    padding: 4px 20px;
+    position:absolute;
+    left:78%;
+}
+input[type=search]{
+    background: transparent;
+    color: rgb(103, 245, 21);
+    text-decoration: none;
+    border-radius: 4px solid red;
+    border:none;
+    
+}
+
+
+
