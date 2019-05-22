@@ -1,12 +1,12 @@
 <?php
-/*$conexiones= mysqli_connect("localhost","root","","peluqueria") or die("problemas con la conexion") ;
- Datos de conexion a la base de datos
+$conexion= mysqli_connect("localhost","root","","peluqueria") or die("problemas con la conexion") ;
+ /*Datos de conexion a la base de datos
 $servidor='localhost';
 $usuario='root';
 $pass='1017196928';
 $bd='calendario';
 $servidor='localhost';
-$usuario='id9509155_and';
+$usuario='id9509155_and';s
 $pass='1017196928';
 $bd='id9509155_calendario';
 // Nos conectamos a la base de datos
@@ -18,19 +18,5 @@ if ($conexion->connect_errno) {
 }
 */
 
-	$servidor ='localhost';
-    $usuario='root';
-    $pass='';
-	$bd='peluqueria';
-	
-    $tabla='usuarios';
-   error_reporting(0);
-   $conexion=new mysqli($servidor,$usuario,$pass,$bd);
-   $conexion->set_charset('utf8');
-   if($conexion->connect_errno){
-	echo"nuestro servicio experimenta fallos...";
-	exit();
-
-}
 
 ?>

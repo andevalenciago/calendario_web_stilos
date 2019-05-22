@@ -1,24 +1,21 @@
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="bus_sty.css">
-</head>
-<body>
-<h2>Ingrese el id del cliente</h2>
-<form action="busqueda.php" method="post">
-  <input type="text" placeholder="Search.." name="txt_id">
-  <button type="submit"><i class="fa fa-search"></i></button>
+  <head>
+    <title>buscar</title>
+    <meta charset="utf-8">
+
+  </head>
+  <body>
+    <h2>Datos del cliente</h2>
 
   <?php
 
     include ('conexion.php');
-    $usuarios = mysqli_query ($conexion,"SELECT * FROM usuarios WHERE ID = $_REQUEST [txt_id]") 
+    $usuarios = mysqli_query ($conexion," SELECT * FROM usuarios WHERE ID = ($_REQUEST [txt_id]") 
     or die ("problemas en el select ".mysqli_error($conexion));
 
   ?>
 
-  <table class= "table table-dark">
+  <table borde=1px>
     <thead>
      <tr>
       <th scope="col"> id </th>
@@ -43,7 +40,8 @@
   ?>
   </tbody>
   </table>
-</form>
-
-</body>
+  </body>
 </html> 
+
+
+

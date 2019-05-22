@@ -4,7 +4,7 @@
     <!-- Bootstrap CSS -->
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>LOGIN ADMIN</title>
-<link rel="stylesheet" href="stiloL.css">
+<link rel="stylesheet" href="estiloL.css">
 </head>
 <body id="cuerpo" style="padding-right: 340" >
 <!-- Optional JavaScript -->
@@ -36,12 +36,13 @@
                                <div class="col-md-4">  
                                </div>
                                <div class="col-md-8">
-                                   <button name="button0" onclick="location.href='">Iniciar</button><br><br>
+                                   
+                                   <button name="button" onclick="location.href='">Iniciar</button><br><br>
                                </div>
                            </div>
                        </form>
                        <form class="sing-in" method="post" action="registro.php" >
-                           <div class=center>
+                       
                        <div class="col-md-8">
                              <button name="button1" onclick="location.href='">Registrarse</button>  
                          </div>

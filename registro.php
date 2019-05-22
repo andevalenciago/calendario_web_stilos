@@ -6,7 +6,7 @@
         <!-- Bootstrap CSS -->
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>LOGIN ADMIN</title>
-<link rel="stylesheet" href="stiloL.css">
+<link rel="stylesheet" href="estiloL.css">
 </head>
 <body id="cuerpo" style="padding-right: 340" >
 <!-- Optional JavaScript -->
@@ -25,7 +25,6 @@
                             <select name="cars" required>
                                     <option value="admin">Admin</option>
                                     <option value="Colab">Colaborador</option>
-                                    <option value="Client">Cliente</option>
                             </select>
                             </div>
                             </div>
@@ -75,11 +74,12 @@
                                <div class="col-md-4">
                                </div>
                                <div class="col-md-8">
-                                   <button   onclick="location.href='">Registrar</button>
+                                   <button   onclick="location.href='">Registrarse</button>
                                </div>
 
                            </div>
                        </form>
+                       
                    </div>
                </div>
     </div>
