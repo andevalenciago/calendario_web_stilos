@@ -18,6 +18,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<script src="js/bootstrap-clockpicker.js"></script><!--reloj-->
+<link rel="stylesheet" href="css/bootstrap-clockpicker.css"></link><!--Estilos para el reloj-->
  
  
      <title>AGENDAR CITAS</title>
@@ -27,12 +30,12 @@
  
    <body style="background:whitesmoke;">
  
-     <div class="container-fluid">
+     <div class="container">
           
          
        <div class="row">
          <div class="col"></div>
-         <div class="col-7"><div id= "CalendarioCitas"></div></div><!--Aquí estará el calendario-->
+         <div class="col-11"><div id= "CalendarioCitas"></div></div><!--Aquí estará el calendario-->
          <div class="col ">
            
          <div class="col"></div>
@@ -52,26 +55,22 @@
              center:'title', 
              right: 'month, basicWeek, basicDay, agendaWeek, agendaDay'//orden y agrega vista por agenda
             
-         },
-         customButtons:{
-             btn_agendarCita:{
-                 text:"Agendar Citaaa",
-                 bootstrap: false,
-                
-                 click:function(){
-                     alert("Aquí irá  un Modal emergente para agendar citas");
-                 }
-                 
-
-             }
-             }
+         }
              , 
              dayClick:function(date, jsEvent,view){
-             $(this).css('background-color', 'red');
+            
              $('#agendar').modal();
+             $('#fecha').val(date.format()); // fecha seleccionada en imput fecha del modal
+             
+            
+  
 
 
-         }
+         }//,         //events:    
+        
+         
+
+         
 
 
      }) ;  
@@ -89,58 +88,90 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="agendar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-  <div class="modal-dialog">
+
+ 
+<div class="modal fade" id="agendar" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="false">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Nueva cita</h4>
+        <h4 class="modal-title" id="myModalLabel">nuevo</h4>
       </div>
+      <div class="container">
+     
       <div class="modal-body">
-        <form action="" method="post">
-                    <label for="desde">Hora inicio</label>
+        <form action="insertar_evento.php" method="post">
+            <div class=" row">
+                <div class="col-3">
+            <label for="desde">Fecha</label>
                     <div class='input-group date' id='desde'>
-                        <input type='text' id="desde" name="desde" class="form-control" readonly />
+                        <input type='text' id="fecha" name="fecha" class="form-control" readonly />
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                     </div>
 
+                    <br>
+
+                    <label for="desde">Hora inicio</label>
+                    <div class="input-group clockpicker" data-placement="right" data-align="top" data-autoclose="true">
+                        <input type="text" name="H_ini" class="form-control" value="">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                    <script type="text/javascript">
+                    $('.clockpicker').clockpicker();
+                    </script>
                     <br>
 
                     <label for="to">Hora fin</label>
-                    <div class='input-group date' id='to'>
-                        <input type='text' name="to" id="to" class="form-control" readonly />
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    <div  id = "hora_finpicker"class="input-group clockpicker" data-placement="right" data-align="top" data-autoclose="true">
+                        <input type="text" name = "H_fin"class="form-control2" value="">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
                     </div>
-
+                    <script type="text/javascript">
+                    $('.clockpicker').clockpicker();
+                    </script>
                     <br>
+                  </div>
+                  <div class="col-6">
+                      <label for="tipo">Tipo de evento</label>
+                      <select class="form-control" name="clase_evento" id="tipo">
+                          <option value="cita">Cita</option>
+                          <option value="reunion">Reunión</option>
+                          <option value="importante">Importantante</option>
+                          <option value="interno">Evento interno</option>
+                      </select>
 
-                    <label for="tipo">Tipo de evento</label>
-                    <select class="form-control" name="class" id="tipo">
-                        <option value="event-info">Cita</option>
-                        <option value="event-success">Reunión</option>
-                        <option value="event-important">Importantante</option>
-                        <option value="event-special">Evento interno</option>
-                    </select>
 
-                    <br>
+                      <br>
 
 
-                    <label for="title">Id cliente</label>
-                    <input type="text" required autocomplete="off" name="title" class="form-control" id="title" placeholder="Introduce un título">
+                      <label for="title">Id cliente</label>
+                      <input type="text" required autocomplete="off" name="id_cliente" class="form-control" id="title" placeholder="Introduce un id cliente">
+  
+                      <br>
+                  </div>
+                </div>
+              </div>
 
-                    <br>
+                    
+
+
 
 
                     <label for="body">Descripción</label>
-                    <textarea id="body" name="event" required class="form-control" rows="3"></textarea>
+                    <textarea id="body" name="descripcion" required class="form-control" rows="3"></textarea>
                     <div class="modal-footer">
                 
-                        <button type="button" class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                         <button type="button" class="btn btn-warning">Modificar</button>
                         <button type="button" class="btn btn-danger">borrarr</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         
                       </div>
-      </div>
-
+     
+      
+    </div>
   </body>
 </html>
