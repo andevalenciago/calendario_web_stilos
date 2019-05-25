@@ -2,33 +2,44 @@
 
 include ('conexion.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
     // Manejar petición GET
-    $fecha = $_GET["fecha"];
-    $hora_ini = $_GET["H_ini"];
-    $hora_fin = $_GET["H_fin"];
-    $tipo_evento = $_GET["clase_evento"];
-    $id_cliente = $_GET["id_cliente"];
-    $descrip = $_GET["descripcion"];
+    $fecha = $_POST["fecha"];
+    $hora_ini = $_POST["H_ini"];
+    $hora_fin = $_POST["H_fin"];
+    $tipo_evento = $_POST["clase_evento"];
+    $id_cliente = $_POST["id_cliente"];
+    $descrip = $_POST["descripcion"];
 
 
         switch ($tipo_evento) {
     case "cita":
-        $Color = "1EB412";
+        $Color = "#1EB412";
         break;
     case "reunion":
-        $Color = "3568F0";
+        $Color = "#3568F0";
         break;
     case "interno":
-        $Color = "AB19EF";
+        $Color = "#AB19EF";
     case "importante":
-        $Color = "F86045";
-        break;
-$SQL ="INSERT INTO eventos VALUES ($tipo_evento,$descrip,$Color,$id_cliente,$Hora_ini,$Hora_fin,$fecha)";
+        $Color = "#F86045";
+        break;}
 
-$conexion->execute($SQL);
+        $hora_ini =  $fecha. " ". $hora_ini.  ":00.000000";
+        $hora_fin =  $fecha. " ". $hora_fin.  ":00.000000";
+          
 
-echo "string";
-   }
+$SQL ="INSERT INTO eventos VALUES ('$tipo_evento','$descrip','$Color','$id_cliente','$hora_ini','$hora_fin','$fecha')";
+
+
+$guardar= $conexion->query($SQL);
+
+if(!$guardar){
+    echo "error";
+}else{
+    echo "Guardado";
+
 }
+   
+
 ?>
