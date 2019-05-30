@@ -6,14 +6,15 @@
 </head>
 <body>
 <h2>Ingrese el id del cliente</h2>
-<form action="busqueda.php" method="post">
+<form >
   <input type="text" placeholder="Search.." name="txt_id">
   <button type="submit"><i class="fa fa-search"></i></button>
 
   <?php
 
     include ('conexion.php');
-    $usuarios = mysqli_query ($conexion,"SELECT * FROM usuarios WHERE ID = $_REQUEST [txt_id]") 
+    $idB=$_REQUEST['txt_id'];
+    $usuarios = mysqli_query ($conexion,"SELECT ID  FROM usuarios WHERE ID = '".$idB."'") 
     or die ("problemas en el select ".mysqli_error($conexion));
 
   ?>
