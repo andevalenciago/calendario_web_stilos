@@ -1,56 +1,89 @@
-CREATE DATABASE  IF NOT EXISTS `peluqueria` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `peluqueria`;
--- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: peluqueria
--- ------------------------------------------------------
--- Server version	6.0.0-alpha-community-nt-debug
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 01-06-2019 a las 06:04:32
+-- Versión del servidor: 5.7.17-log
+-- Versión de PHP: 7.3.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `usuarios`
+-- Base de datos: `peluqueria`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `eventos`
+--
+
+CREATE TABLE `eventos` (
+  `title` varchar(50) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `color` varchar(50) NOT NULL,
+  `Id_usuario` int(11) NOT NULL,
+  `start` datetime(6) NOT NULL,
+  `end` varchar(60) NOT NULL,
+  `Fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `eventos`
+--
+
+INSERT INTO `eventos` (`title`, `descripcion`, `color`, `Id_usuario`, `start`, `end`, `Fecha`) VALUES
+('interno', 'erer', '#F86045', 456, '2019-05-09 18:35:00.000000', '2019-05-09 19:40:00.000000', '2019-05-09'),
+('reunion', 'sds', '#3568F0', 5, '2019-05-10 18:35:00.000000', '2019-05-10 19:40:00.000000', '2019-05-10'),
+('cita', 'wdsd', '#1EB412', 5656, '2019-05-09 19:35:00.000000', '2019-05-09 19:50:00.000000', '2019-05-09'),
+('cita', 'asfcas', '#1EB412', 5454, '2019-05-25 08:00:00.000000', '2019-05-25T08:00:00 19:50:00.000000', '2019-05-25'),
+('cita', 'asdfsad', '#1EB412', 777, '2019-05-26 19:35:00.000000', '2019-05-26 19:50:00.000000', '2019-05-26'),
+('cita', 'fdasfa', '#1EB412', 34543, '2019-05-17 08:30:00.000000', '2019-05-17 09:30:00.000000', '2019-05-17');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
 CREATE TABLE `usuarios` (
-  `ID` int(11) NOT NULL,
+  `Id_usuario` int(11) NOT NULL,
   `Nombre` varchar(50) DEFAULT NULL,
   `Apellido` varchar(50) DEFAULT NULL,
-  `telefonos` varchar(10) DEFAULT NULL,
+  `Telefonos` varchar(10) DEFAULT NULL,
   `Nombre_usuario` varchar(30) DEFAULT NULL,
-  `contraseña` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `Contrasena` varchar(100) DEFAULT NULL,
+  `Tipo_usuario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `usuarios` (`Id_usuario`, `Nombre`, `Apellido`, `Telefonos`, `Nombre_usuario`, `Contrasena`, `Tipo_usuario`) VALUES
+(1234, 'andres', 'val gon', '3456789', 'q', '12344', 'Colab');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`Id_usuario`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-05-11  9:55:26
